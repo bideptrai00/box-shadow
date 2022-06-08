@@ -13,7 +13,7 @@ export default function ModelProvider({ children }) {
   });
   const [shadowModels, setShadowModels] = useState([]);
 
-  const [layers, setLayers] = useState([{ index: 0 }]);
+  const [layers, setLayers] = useState([0]);
   const [curLayer, setCurLayer] = useState(0);
 
   const [shadow, setShadow] = useState("");
@@ -58,6 +58,7 @@ export default function ModelProvider({ children }) {
         setShadows,
         layers,
         setLayers,
+        curLayer,
         setCurLayer,
         shadowModels,
         setShadowModels,

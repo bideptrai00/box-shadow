@@ -1,6 +1,6 @@
 import React from "react";
 import "@shopify/polaris/build/esm/styles.css";
-import { AppProvider, Card, Layout, RangeSlider } from "@shopify/polaris";
+import { AppProvider, Layout } from "@shopify/polaris";
 import Controls from "./components/Controls";
 import Preview from "./components/Preview";
 import ModelProvider from "./components/Context/ModelProvider";
