@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "@shopify/polaris/build/esm/styles.css";
+import { AppProvider, Card, Layout, RangeSlider } from "@shopify/polaris";
+import Controls from "./components/Controls";
+import Preview from "./components/Preview";
+import ModelProvider from "./components/Context/ModelProvider";
+import CssCode from "./components/CssCode";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ModelProvider>
+      <AppProvider
+        i18n={{
+          Polaris: {
+            ResourceList: {
+              sortingLabel: "Sort by",
+              defaultItemSingular: "item",
+              defaultItemPlural: "items",
+              showing: "Showing {itemsCount} {resource}",
+              Item: {
+                viewItem: "View details for {itemName}",
+              },
+            },
+            Common: {
+              checkbox: "checkbox",
+            },
+          },
+        }}
+      >
+        <Layout>
+          <Layout.Section oneHalf>
+            <Controls />
+          </Layout.Section>
+
+          <Layout.Section oneHalf>
+            <Preview />
+            <CssCode />
+          </Layout.Section>
+        </Layout>
+      </AppProvider>
+    </ModelProvider>
   );
 }
-
-export default App;
